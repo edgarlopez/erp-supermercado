@@ -15,7 +15,7 @@ export class Product {
   @Column()
   categoria!: string;
 
-  @Column()
+  @Column({ type: "varchar" })
   unidad!: Unidad;
 
   @Column({ type: "numeric", precision: 10, scale: 2, transformer: { to: (v) => v, from: (v) => Number(v) } })

@@ -5,10 +5,10 @@ export class WhatsappConversation {
   @PrimaryColumn({ name: "from_number" })
   fromNumber!: string;
 
-  @Column({ name: "last_question", nullable: true })
+  @Column({ name: "last_question", type: "text", nullable: true })
   lastQuestion!: string | null;
 
-  @Column({ name: "last_answer", nullable: true })
+  @Column({ name: "last_answer", type: "text", nullable: true })
   lastAnswer!: string | null;
 
   @Column({ name: "updated_at" })

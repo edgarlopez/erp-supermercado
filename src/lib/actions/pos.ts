@@ -4,6 +4,7 @@ import { requireUser } from "@/lib/auth/session";
 import { getDataSource } from "@/lib/db/data-source";
 import { Sale } from "@/lib/db/entities/Sale";
 import { SaleItem } from "@/lib/db/entities/SaleItem";
+import { toPlain } from "@/lib/db/plain";
 import type { MetodoPago } from "@/lib/types";
 
 export interface CheckoutItem {
@@ -48,5 +49,5 @@ export async function checkout(input: CheckoutInput): Promise<CheckoutResult> {
   const sale = await db.getRepository(Sale).findOneByOrFail({ id: saleId });
   const items = await db.getRepository(SaleItem).findBy({ saleId });
 
-  return { sale, items, cajeroName: user.fullName || user.email || "" };
+  return { sale: toPlain(sale), items: toPlain(items), cajeroName: user.fullName || user.email || "" };
 }

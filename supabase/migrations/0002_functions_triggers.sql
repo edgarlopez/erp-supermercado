@@ -73,8 +73,11 @@ begin
   for v_item in select value from jsonb_array_elements(p_items) loop
     v_subtotal := v_subtotal + (v_item ->> 'cantidad')::numeric * (v_item ->> 'precio_unitario')::numeric;
   end loop;
+  -- Redondear antes de derivar el cambio: si no, total + cambio puede no cuadrar
+  -- exactamente con el monto recibido por el redondeo independiente de cada columna.
+  v_subtotal := round(v_subtotal, 2);
 
-  v_cambio := case when p_monto_recibido is not null then p_monto_recibido - v_subtotal else null end;
+  v_cambio := case when p_monto_recibido is not null then round(p_monto_recibido - v_subtotal, 2) else null end;
 
   insert into sales (client_sale_id, cajero_id, subtotal, total, metodo_pago, monto_recibido, cambio)
   values (p_client_sale_id, p_cajero_id, v_subtotal, v_subtotal, p_metodo_pago, p_monto_recibido, v_cambio)

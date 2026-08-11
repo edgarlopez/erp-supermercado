@@ -9,7 +9,7 @@ export class Expense {
   @Column()
   concepto!: string;
 
-  @Column()
+  @Column({ type: "varchar" })
   categoria!: CategoriaGasto;
 
   @Column({ type: "numeric", precision: 10, scale: 2, transformer: { to: (v: number) => v, from: (v: string) => Number(v) } })
@@ -18,7 +18,7 @@ export class Expense {
   @Column({ type: "date" })
   fecha!: string;
 
-  @Column({ name: "usuario_id", nullable: true })
+  @Column({ name: "usuario_id", type: "uuid", nullable: true })
   usuarioId!: string | null;
 
   @Column({ name: "created_at" })

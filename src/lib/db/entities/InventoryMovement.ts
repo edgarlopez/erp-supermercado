@@ -9,7 +9,7 @@ export class InventoryMovement {
   @Column({ name: "product_id" })
   productId!: string;
 
-  @Column()
+  @Column({ type: "varchar" })
   tipo!: TipoMovimiento;
 
   @Column({ type: "numeric", precision: 10, scale: 3, transformer: { to: (v: number) => v, from: (v: string) => Number(v) } })
@@ -18,10 +18,10 @@ export class InventoryMovement {
   @Column({ default: "" })
   motivo!: string;
 
-  @Column({ name: "referencia_venta_id", nullable: true })
+  @Column({ name: "referencia_venta_id", type: "uuid", nullable: true })
   referenciaVentaId!: string | null;
 
-  @Column({ name: "usuario_id", nullable: true })
+  @Column({ name: "usuario_id", type: "uuid", nullable: true })
   usuarioId!: string | null;
 
   @Column({ name: "created_at" })

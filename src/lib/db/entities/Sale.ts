@@ -20,7 +20,7 @@ export class Sale {
   @Column(money)
   total!: number;
 
-  @Column({ name: "metodo_pago" })
+  @Column({ name: "metodo_pago", type: "varchar" })
   metodoPago!: MetodoPago;
 
   @Column({ name: "monto_recibido", ...money, nullable: true })

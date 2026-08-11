@@ -9,7 +9,7 @@ export class Profile {
   @Column({ name: "full_name", default: "" })
   fullName!: string;
 
-  @Column({ default: "cajero" })
+  @Column({ type: "varchar", default: "cajero" })
   role!: Role;
 
   @Column({ name: "created_at" })
