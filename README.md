@@ -5,6 +5,13 @@ y un agente de IA por WhatsApp. Next.js (App Router) + TypeScript + MUI, Supabas
 para login, Postgres (el mismo de Supabase) via TypeORM para todos los datos, Twilio
 WhatsApp sandbox + Claude para el agente.
 
+## Cuentas de demo
+
+Ya cargadas en la base (100 productos + 2 ventas de ejemplo):
+
+- Admin: `admin@erp-test.local` / `TestPass123!`
+- Cajero: `cajero@erp-test.local` / `TestPass123!`
+
 ## Stack y por que
 
 - **Next.js App Router + TypeScript + MUI** (pedido por el cliente).
