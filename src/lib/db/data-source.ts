@@ -1,5 +1,9 @@
 import "reflect-metadata";
 import "server-only";
+// TypeORM loads the "pg" driver via a dynamic require() (a runtime string,
+// not a static import), so Vercel's file tracer can't see it and drops it
+// from the serverless bundle. A plain static import forces it to be traced.
+import "pg";
 import { DataSource } from "typeorm";
 import { Profile } from "./entities/Profile";
 import { Product } from "./entities/Product";
