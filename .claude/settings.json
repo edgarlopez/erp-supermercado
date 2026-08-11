@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(npx --yes create-next-app@latest . --typescript --app --eslint --src-dir --import-alias \"@/*\" --use-npm --turbopack --no-tailwind)",
+      "Bash(mkdir -p /tmp/claude-1000/-home-edgar-empresa-proyectos-test/7c4b8ba6-8fe0-4ef5-93e5-efee31671e69/scratchpad/scaffold)",
+      "Bash(npx --yes create-next-app@latest erp --typescript --app --eslint --src-dir --import-alias \"@/*\" --use-npm --turbopack --no-tailwind)",
+      "Bash(npm install *)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/@mui/material/package.json'\\).version, require\\('./node_modules/next/package.json'\\).version, require\\('./node_modules/@mui/material-nextjs/package.json'\\).version\\)\")",
+      "Bash(npm run *)",
+      "Bash(npx --yes @next/codemod@canary middleware-to-proxy .)"
+    ]
+  }
+}
