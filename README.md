@@ -126,7 +126,7 @@ src/app/api/whatsapp/      Webhook de Twilio
 
 - El checkout del POS y los ajustes de stock corren como funciones de Postgres
   (`process_sale`, `adjust_stock`) invocadas via TypeORM: el `UPDATE ... WHERE stock >=
-  cantidad` toma el lock de fila y valida el stock en un solo statement, para que las dos
+cantidad` toma el lock de fila y valida el stock en un solo statement, para que las dos
   cajas puedan vender el mismo producto al mismo tiempo sin condiciones de carrera.
 - Los movimientos de inventario (`inventory_movements`) los genera un trigger en
   `products` (`AFTER UPDATE OF stock`), no codigo de aplicacion repetido: la carga
@@ -135,3 +135,9 @@ src/app/api/whatsapp/      Webhook de Twilio
 - El "flujo de caja" en Finanzas usa todas las ventas (cualquier metodo de pago) como
   ingresos, no solo efectivo -- es la lectura mas util para un dashboard general del
   negocio, documentado aqui por si se esperaba la lectura de caja-en-efectivo.
+
+## VIDEO Y DOCUMENTO PDF
+
+doc/
+├── ERP_Supermercado_Resumen.pdf
+└── demo_sistema_pos_supermercado.mp4
